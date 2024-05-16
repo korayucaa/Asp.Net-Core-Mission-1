@@ -1,4 +1,5 @@
 ﻿using BuisnessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -9,54 +10,45 @@ using System.Threading.Tasks;
 
 namespace BuisnessLayer.Concrete
 {
-	public class CategoryManager : ICategoryService
-	{
-		EfCategoryRepository efCategoryRepository;
-		
+    public class CategoryManager : ICategoryService
+    {
+        ICategoryDal _categoryDal;
 
-		public CategoryManager()
+
+
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            efCategoryRepository = new EfCategoryRepository();
-
+            _categoryDal = categoryDal;
         }
-        // YANLIŞ YOLLAR YEŞİLLER 
-        /*CategoryRepository categoryRepository = new CategoryRepository();
-		GenericRepository<Category> repo = new GenericRepository<Category>();*/
-        public void CategoryAdd(Category category)
-		{
-			/*if (category.CategoryName != ""&&category.CategoryDescrption!=""&&category.CategoryName.Length>=5&&category.CategoryStatus==true)
-			{
-				categoryRepository.AddCategory(category);
-			}
-			else
-			{
-				//hata mesajı 
-			}*/
-			efCategoryRepository.Insert(category);
-		}
 
-		public void CategoryDelete(Category category)
-		{
-			/*	if (category.CategoryID != 0)
+        public void CategoryAdd(Category category)
+        {
+
+            _categoryDal.Insert(category);
+        }
+
+        public void CategoryDelete(Category category)
+        {
+            /*	if (category.CategoryID != 0)
 				{
 					categoryRepository.DeleteCategory(category);
 				}*/
-			efCategoryRepository.Delete(category);
-		}
+            _categoryDal.Delete(category);
+        }
 
-		public void CategoryUpdate(Category category)
-		{
-			efCategoryRepository.Update(category);
-		}
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);
+        }
 
-		public Category GetById(int id)
-		{
-			return efCategoryRepository.GetById(id);
-		}
+        public Category GetById(int id)
+        {
+            return _categoryDal.GetById(id);
+        }
 
-		public List<Category> GetList()
-		{
-			return efCategoryRepository.GetListAll();
-		}
-	}
+        public List<Category> GetList()
+        {
+            return _categoryDal.GetListAll();
+        }
+    }
 }

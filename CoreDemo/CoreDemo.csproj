@@ -7,6 +7,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\CoreBlogTema-main\**" />
+    <Content Remove="wwwroot\CoreBlogTema-main\**" />
+    <EmbeddedResource Remove="wwwroot\CoreBlogTema-main\**" />
+    <None Remove="wwwroot\CoreBlogTema-main\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\webError\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\webError\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\web\js\bootstrap.js" />
+    <None Include="wwwroot\web\js\easing.js" />
+    <None Include="wwwroot\web\js\jquery-2.2.3.min.js" />
+    <None Include="wwwroot\web\js\jquery.desoslide.js" />
+    <None Include="wwwroot\web\js\jquery.flexisel.js" />
+    <None Include="wwwroot\web\js\modernizr.custom.min.js" />
+    <None Include="wwwroot\web\js\move-top.js" />
+    <None Include="wwwroot\web\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\web\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\web\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\web\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\web\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\web\webfonts\fa-solid-900.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
       <PrivateAssets>all</PrivateAssets>
